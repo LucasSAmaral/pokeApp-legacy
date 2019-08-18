@@ -1,0 +1,54 @@
+.pokeball {
+  min-height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  background: linear-gradient(
+    to bottom,
+    red 0%,
+    red 45%,
+    black 0%,
+    black 50%,
+    white 0%
+  );
+}
+
+.pokeball:hover {
+  animation: moving 1s ease infinite;
+}
+
+.pokeball::before {
+  content: "";
+  position: absolute;
+  min-width: 10px;
+  min-height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black;
+  top: 32%;
+  left: 34%;
+  background: radial-gradient(#fff 0%, #fff 45%, #333 0%, #333 54%, #ffffff 0%);
+}
+
+@keyframes moving {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
