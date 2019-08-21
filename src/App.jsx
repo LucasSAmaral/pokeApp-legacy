@@ -1,8 +1,8 @@
 import React from "react";
-import "./style/App.scss";
+import "./style/style.scss";
 
 function App() {
-  return <div className="App" />;
+  return <div className="container__App" />;
 }
 
 export default App;
