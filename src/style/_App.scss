@@ -1,6 +1,26 @@
-.container__App {
+.container__pokeApp {
   width: 100%;
   height: 100vh;
   background-color: black;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Poke";
+  color: #ffcb05;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.container__pokeApp-features {
+  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  background-color: white;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.pokeApp__FeatureTitle,
+.buttonLabel {
+  text-align: center;
 }
