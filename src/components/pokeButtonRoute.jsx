@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PokeButtonRoute = props => {
-  return <Link className="pokeball" to={props.path} />;
+const PokeButtonRoute = ({ path }) => {
+  return <Link className="pokeball" to={path} />;
 };
 
 export default PokeButtonRoute;
