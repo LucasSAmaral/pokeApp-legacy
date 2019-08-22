@@ -1,7 +1,11 @@
 import React from "react";
 
 const Pokedex = () => {
-  return <h1>Pokedex</h1>;
+  return (
+    <div className="container__pokeApp">
+      <h1>Pokedex</h1>
+    </div>
+  );
 };
 
 export default Pokedex;
