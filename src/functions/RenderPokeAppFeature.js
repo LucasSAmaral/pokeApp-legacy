@@ -1,9 +1,15 @@
 import React from "react";
 import PokeAppFeature from "../components/pokeAppFeature";
 import AppText from "../assets/AppText/AppText.json";
+import { path } from "ramda";
+
+const PokeAppFeatureText = path(
+  ["mainPageText", "PokeAppFeatureText"],
+  AppText
+);
 
 const RenderPokeAppFeature = () =>
-  AppText.map((feature, index) => (
+  PokeAppFeatureText.map((feature, index) => (
     <PokeAppFeature
       key={index}
       path={feature.path}
