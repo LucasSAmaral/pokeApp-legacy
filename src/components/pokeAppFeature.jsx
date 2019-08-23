@@ -2,11 +2,11 @@ import React from "react";
 import FeatureTitle from "./featureTitle";
 import PokeButtonRoute from "./pokeButtonRoute";
 
-const PokeAppFeature = ({ children, buttonLabel, path }) => (
+const PokeAppFeature = props => (
   <div className="container__pokeApp-features">
-    <FeatureTitle>{children}</FeatureTitle>
-    <PokeButtonRoute path={path} />
-    <div className="buttonLabel">{buttonLabel}</div>
+    <FeatureTitle>{props.children}</FeatureTitle>
+    <PokeButtonRoute path={props.path} />
+    <div className="buttonLabel">{props.buttonLabel}</div>
   </div>
 );
 

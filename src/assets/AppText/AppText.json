@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/pokedex",
+    "buttonLabel": "Click the Pokeball to know more about Pokémons",
+    "children": "Pokedex"
+  },
+  {
+    "path": "/who-is-this-pokemon",
+    "buttonLabel": "Click the Pokeball to Play",
+    "children": "Who is this Pokémon?"
+  }
+]
