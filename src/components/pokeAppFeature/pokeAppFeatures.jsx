@@ -1,6 +1,6 @@
 import React from "react";
-import PokeAppFeature from "../components/pokeAppFeature";
-import AppText from "../assets/AppText/AppText.json";
+import PokeAppFeature from "./pokeAppFeature";
+import AppText from "../../assets/AppText/AppText.json";
 import { path } from "ramda";
 
 const PokeAppFeatureText = path(
@@ -8,7 +8,7 @@ const PokeAppFeatureText = path(
   AppText
 );
 
-const RenderPokeAppFeature = () =>
+const PokeAppFeatures = () =>
   PokeAppFeatureText.map((feature, index) => (
     <PokeAppFeature
       key={index}
@@ -19,4 +19,4 @@ const RenderPokeAppFeature = () =>
     </PokeAppFeature>
   ));
 
-export default RenderPokeAppFeature;
+export default PokeAppFeatures;

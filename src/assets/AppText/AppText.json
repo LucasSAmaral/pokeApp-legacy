@@ -4,7 +4,7 @@
       {
         "path": "/pokedex",
         "buttonLabel": "Click the Pokeball to know more about Pokémons",
-        "children": "Pokedex"
+        "children": "Pokédex"
       },
       {
         "path": "/who-is-this-pokemon",

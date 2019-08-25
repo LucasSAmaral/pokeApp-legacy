@@ -1,6 +1,6 @@
 import React from "react";
-import FeatureTitle from "./featureTitle";
-import PokeButtonRoute from "./pokeButtonRoute";
+import FeatureTitle from "../featureTitle/featureTitle";
+import PokeButtonRoute from "../pokeButton/pokeButtonRoute";
 
 const PokeAppFeature = props => (
   <div className="container__pokeApp-features">
