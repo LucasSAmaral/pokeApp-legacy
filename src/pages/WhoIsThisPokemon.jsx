@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "../reducers/reducer";
 
 const WhoIsThisPokemon = () => {
   useEffect(() => {
@@ -11,4 +13,7 @@ const WhoIsThisPokemon = () => {
   );
 };
 
-export default WhoIsThisPokemon;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WhoIsThisPokemon);

@@ -9,7 +9,7 @@ const initialState = {
   timesWithoutSkip: 0
 };
 
-export const whoIsThisPokemon = (state = initialState, action = {}) => {
+export const whoIsThisPokemonReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case INITIAL_STATUS:
       return {
