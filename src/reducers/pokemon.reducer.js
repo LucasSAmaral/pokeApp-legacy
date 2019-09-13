@@ -24,10 +24,10 @@ export const pokemonReducer = (state = initialState, action = {}) => {
         status: POKEMON_INFO_NUMBER_FETCHED,
         pokemonNumber: action.payload
       };
-    case POKEMON_INFO_NUMBER_FETCHED:
+    case POKEMON_INFO_NAME_FETCHED:
       return {
         ...state,
-        status: POKEMON_INFO_NUMBER_FETCHED,
+        status: POKEMON_INFO_NAME_FETCHED,
         pokemonName: action.payload
       };
 
@@ -48,7 +48,7 @@ export const pokemonNumberFetchedActionCreator = number => ({
 });
 
 export const pokemonInfoNameFetchedActionCreator = name => ({
-  type: POKEMON_INFO_NUMBER_FETCHED,
+  type: POKEMON_INFO_NAME_FETCHED,
   payload: name
 });
 
