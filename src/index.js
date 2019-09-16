@@ -6,8 +6,8 @@ import { Provider } from "react-redux";
 import reducer from "./reducers/reducer";
 import MainPage from "./pages/MainPage";
 import Pokedex from "./pages/Pokedex";
-import WhoIsThisPokemon from "./pages/WhoIsThisPokemon";
-import Pokemon from "./pages/Pokemon";
+import WhoIsThisPokemon from "./pages/whoIsThisPokemon/index";
+import Pokemon from "./pages/Pokemon/index";
 import AboutTheApp from "./pages/AboutTheApp";
 import AboutMe from "./pages/AboutMe";
 

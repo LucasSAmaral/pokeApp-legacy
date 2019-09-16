@@ -3,14 +3,14 @@ import {
   whoIsThisPokemonReducer as whoIsThisPokemon,
   pokemonIdFetchedActionCreator,
   pokemonNameFetchedActionCreator
-} from "./whoIsThisPokemon.reducer";
+} from "../pages/whoIsThisPokemon/reducer";
 
 import {
   pokemonReducer as pokemon,
   pokemonNumberFetchedActionCreator,
   pokemonInfoNameFetchedActionCreator,
   pokemonInfoDescriptionFetchedActionCreator
-} from "./pokemon.reducer";
+} from "../pages/Pokemon/reducer";
 
 export default combineReducers({
   pokemon,
@@ -33,7 +33,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  dispatch: dispatch,
+  dispatch,
   onPokemonIdFetched: id => {
     dispatch(pokemonIdFetchedActionCreator(id));
   },

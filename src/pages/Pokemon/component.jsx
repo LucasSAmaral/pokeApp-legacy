@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
+import useComponentDidMount from "../../helpers/index";
 
-const Pokemon = () => {
-  useEffect(() => {
+export default props => {
+  useComponentDidMount(() => {
     document.title = "Pokémon";
   });
   return (
@@ -10,5 +11,3 @@ const Pokemon = () => {
     </div>
   );
 };
-
-export default Pokemon;
