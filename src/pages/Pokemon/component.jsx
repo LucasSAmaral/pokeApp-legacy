@@ -1,5 +1,5 @@
 import React from "react";
-import useComponentDidMount from "../../helpers/index";
+import useComponentDidMount from "../../helpers/useComponentDidMount";
 
 export default props => {
   useComponentDidMount(() => {
