@@ -10,6 +10,7 @@ import WhoIsThisPokemon from "./pages/whoIsThisPokemon/index";
 import Pokemon from "./pages/Pokemon/index";
 import AboutTheApp from "./pages/AboutTheApp/component";
 import AboutMe from "./pages/AboutMe/component";
+import "./style/style.scss";
 
 const store = createStore(
   reducer,
