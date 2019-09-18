@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+import useComponentDidMount from "../../helpers/useComponentDidMount";
 import { path } from "ramda";
-import AppText from "../assets/AppText/AppText.json";
+import AppText from "../../assets/AppText/AppText.json";
 
 const PokedexPageText = path(["PokedexPageText", "PageTitle"], AppText);
 
-const Pokedex = () => {
-  useEffect(() => {
+export default props => {
+  useComponentDidMount(() => {
     document.title = "Pokédex";
   });
 
@@ -15,5 +16,3 @@ const Pokedex = () => {
     </div>
   );
 };
-
-export default Pokedex;

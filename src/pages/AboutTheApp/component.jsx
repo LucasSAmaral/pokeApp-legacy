@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
+import useComponentDidMount from "../../helpers/useComponentDidMount";
 
-const AboutTheApp = () => {
-  useEffect(() => {
+export default props => {
+  useComponentDidMount(() => {
     document.title = "About The App";
   });
   return (
@@ -10,5 +11,3 @@ const AboutTheApp = () => {
     </div>
   );
 };
-
-export default AboutTheApp;
