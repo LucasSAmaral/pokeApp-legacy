@@ -17,12 +17,10 @@ export default props => {
       .then(pokemon => {
         props.onPokemonNameFetched(pokemon[randomNumber].name);
         props.onPokemonsUrlFetched(pokemon[randomNumber].url);
-        console.log("Inside Promise", state);
       })
       .catch(error => {
         console.log(error);
       });
-    console.log("Outside Promise", state);
   });
   return (
     <div className="container__pokeApp">
