@@ -1,15 +1,12 @@
 import { combineReducers } from "redux";
-import {
-  whoIsThisPokemonReducer as whoIsThisPokemon,
-  pokemonIdFetchedActionCreator,
-  pokemonNameFetchedActionCreator
-} from "../pages/whoIsThisPokemon/reducer";
+import { whoIsThisPokemonReducer as whoIsThisPokemon } from "../pages/whoIsThisPokemon/reducer";
 
 import {
   pokemonReducer as pokemon,
   pokemonNumberFetchedActionCreator,
-  pokemonInfoNameFetchedActionCreator,
-  pokemonInfoDescriptionFetchedActionCreator
+  pokemonNameFetchedActionCreator,
+  pokemonsFetchedActionCreator,
+  pokemonDescriptionFetchedActionCreator
 } from "../pages/Pokemon/reducer";
 
 export default combineReducers({
@@ -34,19 +31,16 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   dispatch,
-  onPokemonIdFetched: id => {
-    dispatch(pokemonIdFetchedActionCreator(id));
+  onPokemonNumberFetched: number => {
+    dispatch(pokemonNumberFetchedActionCreator(number));
   },
   onPokemonNameFetched: name => {
     dispatch(pokemonNameFetchedActionCreator(name));
   },
-  onPokemonNumberFetched: number => {
-    dispatch(pokemonNumberFetchedActionCreator(number));
+  onPokemonsFetched: pokemons => {
+    dispatch(pokemonsFetchedActionCreator(pokemons));
   },
-  onPokemonInfoNameFetched: name => {
-    dispatch(pokemonInfoNameFetchedActionCreator(name));
-  },
-  onPokemonInfoDescriptionFetched: description => {
-    dispatch(pokemonInfoDescriptionFetchedActionCreator(description));
+  onPokemonDescriptionFetched: description => {
+    dispatch(pokemonDescriptionFetchedActionCreator(description));
   }
 });

@@ -12,7 +12,7 @@ import AboutTheApp from "./pages/AboutTheApp/component";
 import AboutMe from "./pages/AboutMe/component";
 import "./style/style.scss";
 
-const store = createStore(
+export const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
