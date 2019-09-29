@@ -5,7 +5,7 @@ import {
   pokemonReducer as pokemon,
   pokemonNumberFetchedActionCreator,
   pokemonNameFetchedActionCreator,
-  pokemonsFetchedActionCreator,
+  pokemonUrlFetchedActionCreator,
   pokemonDescriptionFetchedActionCreator
 } from "../pages/Pokemon/reducer";
 
@@ -19,12 +19,11 @@ export const mapStateToProps = state => ({
     status: state.pokemon.status,
     pokemonNumber: state.pokemon.pokemonNumber,
     pokemonName: state.pokemon.pokemonName,
+    pokemonUrl: state.pokemon.pokemonUrl,
     pokemonDescription: state.pokemon.pokemonDescription
   },
   whoIsThisPokemon: {
     status: state.whoIsThisPokemon.status,
-    pokemonId: state.whoIsThisPokemon.pokemonId,
-    pokemonName: state.whoIsThisPokemon.pokemonName,
     timesWithoutSkip: state.whoIsThisPokemon.timesWithoutSkip
   }
 });
@@ -37,8 +36,8 @@ export const mapDispatchToProps = dispatch => ({
   onPokemonNameFetched: name => {
     dispatch(pokemonNameFetchedActionCreator(name));
   },
-  onPokemonsFetched: pokemons => {
-    dispatch(pokemonsFetchedActionCreator(pokemons));
+  onPokemonsUrlFetched: url => {
+    dispatch(pokemonUrlFetchedActionCreator(url));
   },
   onPokemonDescriptionFetched: description => {
     dispatch(pokemonDescriptionFetchedActionCreator(description));

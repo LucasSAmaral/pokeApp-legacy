@@ -1,14 +1,14 @@
 export const INITIAL_INFO_STATUS = "INITIAL_INFO_STATUS";
 export const POKEMON_NUMBER_FETCHED = "POKEMON_NUMBER_FETCHED";
 export const POKEMON_NAME_FETCHED = "POKEMON_NAME_FETCHED";
-export const POKEMON_FETCHED = "POKEMON_FETCHED";
+export const POKEMON_URL_FETCHED = "POKEMON_URL_FETCHED";
 export const POKEMON_DESCRIPTION_FETCHED = "POKEMON_DESCRIPTION_FETCHED";
 
 const initialState = {
   status: INITIAL_INFO_STATUS,
   pokemonNumber: 0,
   pokemonName: "",
-  pokemons: [],
+  pokemonUrl: "",
   pokemonDescription: ""
 };
 
@@ -32,11 +32,11 @@ export const pokemonReducer = (state = initialState, action = {}) => {
         pokemonName: action.payload
       };
 
-    case POKEMON_FETCHED:
+    case POKEMON_URL_FETCHED:
       return {
         ...state,
-        status: POKEMON_FETCHED,
-        pokemons: action.payload
+        status: POKEMON_URL_FETCHED,
+        pokemonUrl: action.payload
       };
 
     case POKEMON_DESCRIPTION_FETCHED:
@@ -60,9 +60,9 @@ export const pokemonNameFetchedActionCreator = name => ({
   payload: name
 });
 
-export const pokemonsFetchedActionCreator = pokemons => ({
-  type: POKEMON_FETCHED,
-  payload: pokemons
+export const pokemonUrlFetchedActionCreator = url => ({
+  type: POKEMON_URL_FETCHED,
+  payload: url
 });
 
 export const pokemonDescriptionFetchedActionCreator = description => ({
