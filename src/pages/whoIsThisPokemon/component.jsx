@@ -1,7 +1,7 @@
 import React from "react";
 import useComponentDidMount from "../../helpers/useComponentDidMount";
 import randomizeNumber from "../../helpers/randomizeNumber";
-// import { store } from "../..";
+import { store } from "../..";
 import getPokemons from "../../helpers/getPokemons";
 
 export default props => {
@@ -9,10 +9,18 @@ export default props => {
     document.title = "Who Is This Pokémon?";
     const randomNumber = randomizeNumber(1, 151);
     props.onPokemonNumberFetched(randomNumber);
-    const pokemons = getPokemons(0, 151);
-    // props.onPokemonsFetched(pokemons);
-    // const state = store.getState();
-    console.log(pokemons);
+    const state = store.getState();
+    Promise.resolve(getPokemons(0, 151))
+      .then(pokemon => {
+        props.onPokemonNameFetched(pokemon[randomNumber].name);
+        props.onPokemonsUrlFetched(pokemon[randomNumber].url);
+        const state = store.getState();
+        console.log("Inside Promise", state);
+      })
+      .catch(error => {
+        throw error;
+      });
+    console.log("Outside Promise", state);
   });
   return (
     <div className="container__pokeApp">
