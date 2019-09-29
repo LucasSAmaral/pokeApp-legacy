@@ -1,15 +1,12 @@
 import { combineReducers } from "redux";
-import {
-  whoIsThisPokemonReducer as whoIsThisPokemon,
-  pokemonIdFetchedActionCreator,
-  pokemonNameFetchedActionCreator
-} from "../pages/whoIsThisPokemon/reducer";
+import { whoIsThisPokemonReducer as whoIsThisPokemon } from "../pages/whoIsThisPokemon/reducer";
 
 import {
   pokemonReducer as pokemon,
   pokemonNumberFetchedActionCreator,
-  pokemonInfoNameFetchedActionCreator,
-  pokemonInfoDescriptionFetchedActionCreator
+  pokemonNameFetchedActionCreator,
+  pokemonUrlFetchedActionCreator,
+  pokemonDescriptionFetchedActionCreator
 } from "../pages/Pokemon/reducer";
 
 export default combineReducers({
@@ -22,31 +19,27 @@ export const mapStateToProps = state => ({
     status: state.pokemon.status,
     pokemonNumber: state.pokemon.pokemonNumber,
     pokemonName: state.pokemon.pokemonName,
+    pokemonUrl: state.pokemon.pokemonUrl,
     pokemonDescription: state.pokemon.pokemonDescription
   },
   whoIsThisPokemon: {
     status: state.whoIsThisPokemon.status,
-    pokemonId: state.whoIsThisPokemon.pokemonId,
-    pokemonName: state.whoIsThisPokemon.pokemonName,
     timesWithoutSkip: state.whoIsThisPokemon.timesWithoutSkip
   }
 });
 
 export const mapDispatchToProps = dispatch => ({
   dispatch,
-  onPokemonIdFetched: id => {
-    dispatch(pokemonIdFetchedActionCreator(id));
+  onPokemonNumberFetched: number => {
+    dispatch(pokemonNumberFetchedActionCreator(number));
   },
   onPokemonNameFetched: name => {
     dispatch(pokemonNameFetchedActionCreator(name));
   },
-  onPokemonNumberFetched: number => {
-    dispatch(pokemonNumberFetchedActionCreator(number));
+  onPokemonsUrlFetched: url => {
+    dispatch(pokemonUrlFetchedActionCreator(url));
   },
-  onPokemonInfoNameFetched: name => {
-    dispatch(pokemonInfoNameFetchedActionCreator(name));
-  },
-  onPokemonInfoDescriptionFetched: description => {
-    dispatch(pokemonInfoDescriptionFetchedActionCreator(description));
+  onPokemonDescriptionFetched: description => {
+    dispatch(pokemonDescriptionFetchedActionCreator(description));
   }
 });
