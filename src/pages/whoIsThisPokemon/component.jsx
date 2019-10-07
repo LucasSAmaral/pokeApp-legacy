@@ -4,6 +4,11 @@ import randomizeNumber from "../../helpers/randomizeNumber";
 import { store } from "../..";
 import { pathOr } from "ramda";
 import getPokemons from "../../helpers/getPokemons";
+import {
+  dispatchPokemonName,
+  dispatchPokemonUrl,
+  dispatchPokemonNumber
+} from "../../helpers/dispatchers";
 
 export default props => {
   const state = store.getState();
@@ -11,16 +16,10 @@ export default props => {
   useComponentDidMount(() => {
     document.title = "Who Is This Pokémon?";
     const randomNumber = randomizeNumber(1, 151);
-    props.onPokemonNumberFetched(randomNumber);
     const pokemons = getPokemons(0, 151);
-    pokemons
-      .then(pokemon => {
-        props.onPokemonNameFetched(pokemon[randomNumber].name);
-        props.onPokemonsUrlFetched(pokemon[randomNumber].url);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    dispatchPokemonNumber(props, randomNumber);
+    dispatchPokemonName(props, randomNumber, pokemons);
+    dispatchPokemonUrl(props, randomNumber, pokemons);
   });
   return (
     <div className="container__pokeApp">
