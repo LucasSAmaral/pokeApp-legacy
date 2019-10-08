@@ -36,7 +36,7 @@ export const mapDispatchToProps = dispatch => ({
   onPokemonNameFetched: name => {
     dispatch(pokemonNameFetchedActionCreator(name));
   },
-  onPokemonsUrlFetched: url => {
+  onPokemonUrlFetched: url => {
     dispatch(pokemonUrlFetchedActionCreator(url));
   },
   onPokemonDescriptionFetched: description => {
