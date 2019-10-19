@@ -13,6 +13,7 @@ body {
   padding: 0px 10px;
   text-shadow: 3px 3px 0 #3b5ca8, -1px -1px 0 #3b5ca8, 1px -1px 0 #3b5ca8,
     -1px 1px 0 #3b5ca8, 1px 1px 0 #3b5ca8;
+  text-align: center;
 }
 
 .container__pokeApp-features {
@@ -26,6 +27,11 @@ body {
   border-radius: 5px;
   box-shadow: 4px -4px 0.5em black;
   background-color: #ec4913;
+}
+
+.container__pokeApp-game {
+  @extend .container__pokeApp-features;
+  max-width: 400px;
 }
 
 .pokeApp__FeatureTitle,

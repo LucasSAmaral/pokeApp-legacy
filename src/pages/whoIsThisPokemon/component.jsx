@@ -4,6 +4,7 @@ import randomizeNumber from "../../helpers/randomizeNumber";
 import { store } from "../..";
 import { pathOr } from "ramda";
 import getPokemons from "../../helpers/getPokemons";
+import PokeAppGame from "../../components/pokeAppFeature/pokeAppGame";
 import {
   dispatchPokemonName,
   dispatchPokemonUrl,
@@ -23,8 +24,10 @@ export default props => {
   });
   return (
     <div className="container__pokeApp">
-      <h1>Who Is This Pokémon?</h1>
-      <h2>{pokemonName}</h2>
+      <PokeAppGame>
+        <h1>Who Is This Pokémon?</h1>
+        <h2>{pokemonName}</h2>
+      </PokeAppGame>
     </div>
   );
 };
