@@ -1,5 +1,7 @@
 import React from "react";
 
-const PokemonImage = props => <img src={props.src} alt="" />;
+const PokemonImage = props => (
+  <img className="pokeApp__pokeImage" src={props.src} alt="" />
+);
 
 export default PokemonImage;

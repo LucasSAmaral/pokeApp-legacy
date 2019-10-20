@@ -1,3 +1,5 @@
+import stringfyNumber from "./stringfyNumber";
+
 export const dispatchPokemonName = (props, randomNumber, pokemons) => {
   pokemons
     .then(pokemon => {
@@ -25,6 +27,7 @@ export const dispatchPokemonNumber = (props, randomNumber) => {
 
 export const dispatchPokemonImage = (props, randomNumber) => {
   const pokemonNumber = randomNumber + 1;
-  const pokemonImagePath = `../../assets/first_generation/${pokemonNumber}.png`;
+  const stringPokemonNumber = stringfyNumber(pokemonNumber);
+  const pokemonImagePath = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${stringPokemonNumber}.png`;
   props.onPokemonImageFetched(pokemonImagePath);
 };
