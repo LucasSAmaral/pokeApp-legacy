@@ -11,7 +11,7 @@ import randomizePokemon from "../../helpers/randomizePokemon";
 export default props => {
   const state = store.getState();
 
-  const pokemonName = pathOr("", ["pokemon", "pokemonName"], state);
+  // const pokemonName = pathOr("", ["pokemon", "pokemonName"], state);
   const pokemonImage = pathOr("", ["pokemon", "pokemonImage"], state);
 
   const WhiIsThisPokemonPageText = path(["WhiIsThisPokemonPageText"], AppText);
@@ -27,7 +27,7 @@ export default props => {
           {WhiIsThisPokemonPageText.PageTitle}
         </FeatureMainTitle>
         <PokemonImage src={pokemonImage} />
-        <button onClick={e => randomizePokemon(props)}>Novo Pokemon</button>
+        <button className="pokeball" onClick={e => randomizePokemon(props)} />
       </PokeAppGame>
     </div>
   );
