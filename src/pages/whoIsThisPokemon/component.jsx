@@ -27,7 +27,7 @@ export default props => {
           {WhiIsThisPokemonPageText.PageTitle}
         </FeatureMainTitle>
         <PokemonImage src={pokemonImage} />
-        <button className="pokeball" onClick={e => randomizePokemon(props)} />
+        <button className="pokeball" onClick={() => randomizePokemon(props)} />
       </PokeAppGame>
     </div>
   );
