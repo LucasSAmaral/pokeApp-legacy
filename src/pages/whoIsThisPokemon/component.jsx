@@ -1,23 +1,22 @@
 import React from "react";
 import useComponentDidMount from "../../helpers/useComponentDidMount";
 import { store } from "../..";
-import { pathOr, path } from "ramda";
+import AppText from "../../assets/AppText/AppText.json";
 import FeatureMainTitle from "../../components/featureTitle/featureMainTitle";
 import PokeAppGame from "../../components/pokeAppGame/pokeAppGame";
 import PokemonImage from "../../components/pokemonImage/pokemonImage";
-import AppText from "../../assets/AppText/AppText.json";
 import randomizePokemon from "../../helpers/randomizePokemon";
+import {
+  getWhoIsThisPokemonPageText,
+  getIsCover,
+  getPokemonImage
+} from "./selector";
 
 export default props => {
   const state = store.getState();
-
-  // const pokemonName = pathOr("", ["pokemon", "pokemonName"], state);
-  const pokemonImage = pathOr("", ["pokemon", "pokemonImage"], state);
-
-  const isCover = pathOr(false, ["whoIsThisPokemon", "cover"], state);
-
-  const WhiIsThisPokemonPageText = path(["WhiIsThisPokemonPageText"], AppText);
-
+  const WhoIsThisPokemonPageText = getWhoIsThisPokemonPageText(AppText);
+  const isCover = getIsCover(state);
+  const pokemonImage = getPokemonImage(state);
   useComponentDidMount(() => {
     document.title = "Who Is This Pokémon?";
     randomizePokemon(props);
@@ -26,7 +25,7 @@ export default props => {
     <div className="container__pokeApp">
       <PokeAppGame>
         <FeatureMainTitle>
-          {WhiIsThisPokemonPageText.PageTitle}
+          {WhoIsThisPokemonPageText.PageTitle}
         </FeatureMainTitle>
         <PokemonImage class={isCover ? "cover" : ""} src={pokemonImage} />
         <button className="pokeball" onClick={() => randomizePokemon(props)} />
