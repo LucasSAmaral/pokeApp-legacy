@@ -2,7 +2,9 @@ export const INITIAL_STATUS = "INITIAL_STATUS";
 
 const initialState = {
   status: INITIAL_STATUS,
-  timesWithoutSkip: 0
+  timesWithoutSkip: 0,
+  loading: false,
+  cover: true
 };
 
 export const whoIsThisPokemonReducer = (state = initialState, action = {}) => {

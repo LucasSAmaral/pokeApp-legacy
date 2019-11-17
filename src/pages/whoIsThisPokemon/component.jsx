@@ -14,6 +14,8 @@ export default props => {
   // const pokemonName = pathOr("", ["pokemon", "pokemonName"], state);
   const pokemonImage = pathOr("", ["pokemon", "pokemonImage"], state);
 
+  const isCover = pathOr(false, ["whoIsThisPokemon", "cover"], state);
+
   const WhiIsThisPokemonPageText = path(["WhiIsThisPokemonPageText"], AppText);
 
   useComponentDidMount(() => {
@@ -26,7 +28,7 @@ export default props => {
         <FeatureMainTitle>
           {WhiIsThisPokemonPageText.PageTitle}
         </FeatureMainTitle>
-        <PokemonImage src={pokemonImage} />
+        <PokemonImage class={isCover ? "cover" : ""} src={pokemonImage} />
         <button className="pokeball" onClick={() => randomizePokemon(props)} />
       </PokeAppGame>
     </div>
