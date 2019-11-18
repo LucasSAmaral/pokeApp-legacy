@@ -1,0 +1,18 @@
+.pokeButton {
+  background-color: #3b5ca8;
+  border: 1px solid #ffcb05;
+  color: #ffcb05;
+  padding: 15px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.8s;
+  text-shadow: none;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.pokeButton:hover {
+  background-color: #2a4175;
+}

@@ -3,12 +3,12 @@
     "PokeAppFeatureText": [
       {
         "path": "/pokedex",
-        "buttonLabel": "Click the Pokeball to know more about Pokémons",
+        "buttonLabel": "See Pokédex",
         "children": "Pokédex"
       },
       {
         "path": "/who-is-this-pokemon",
-        "buttonLabel": "Click the Pokeball to Play",
+        "buttonLabel": "Click to Play",
         "children": "Who is this Pokémon?"
       }
     ]
@@ -17,6 +17,7 @@
     "PageTitle": "Coming Soon"
   },
   "WhiIsThisPokemonPageText": {
-    "PageTitle": "Who Is This Pokémon?"
+    "PageTitle": "Who Is This Pokémon?",
+    "buttonLabel": "Try Another"
   }
 }
