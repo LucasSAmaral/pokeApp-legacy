@@ -32,6 +32,10 @@ body {
 .container__pokeApp-game {
   @extend .container__pokeApp-features;
   max-width: 400px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .pokeApp__FeatureTitle,
@@ -61,6 +65,7 @@ body {
 .pokeApp__pokeImage {
   width: 70%;
   height: auto;
+  align-self: center;
   transition: 0.8s;
   filter: drop-shadow(2px 4px 4px black);
 }
