@@ -68,3 +68,66 @@ body {
 .pokeApp__pokeImage.cover {
   filter: brightness(0) drop-shadow(2px 4px 4px black);
 }
+
+.pokeApp__loading--container {
+  min-height: 282px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pokeApp__loading {
+  min-height: 70px;
+  width: 70px;
+  border: 2px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  background: linear-gradient(
+    to bottom,
+    red 0%,
+    red 50%,
+    black 0%,
+    black 55%,
+    white 0%
+  );
+  animation: moving 1s ease infinite;
+}
+
+.pokeApp__loading::before {
+  content: "";
+  position: absolute;
+  min-width: 10px;
+  min-height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black;
+  top: 41%;
+  left: 39%;
+  background: radial-gradient(#fff 0%, #fff 45%, #333 0%, #333 54%, #ffffff 0%);
+}
+
+.pokeApp__loading:focus {
+  outline: none;
+}
+
+@keyframes moving {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

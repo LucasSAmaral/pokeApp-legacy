@@ -31,3 +31,11 @@ export const dispatchPokemonImage = (props, randomNumber) => {
   const pokemonImagePath = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${stringPokemonNumber}.png`;
   props.onPokemonImageFetched(pokemonImagePath);
 };
+
+export const dispatchPokemonLoading = (props, loading) => {
+  props.onPokemonLoading(loading);
+};
+
+export const dispatchPokemonLoaded = props => {
+  props.onPokemonLoaded();
+};

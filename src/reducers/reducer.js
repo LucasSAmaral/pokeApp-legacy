@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
-import { whoIsThisPokemonReducer as whoIsThisPokemon } from "../pages/whoIsThisPokemon/reducer";
+import {
+  whoIsThisPokemonReducer as whoIsThisPokemon,
+  pokemonLoadingActionCreator,
+  pokemonLoadedActionCreator
+} from "../pages/whoIsThisPokemon/whoIsThisPokemon.reducer";
 
 import {
   pokemonReducer as pokemon,
@@ -8,7 +12,7 @@ import {
   pokemonUrlFetchedActionCreator,
   pokemonImageFetchedActionCreator,
   pokemonDescriptionFetchedActionCreator
-} from "../pages/Pokemon/reducer";
+} from "../pages/Pokemon/pokemon.reducer";
 
 export default combineReducers({
   pokemon,
@@ -43,6 +47,12 @@ export const mapDispatchToProps = dispatch => ({
   },
   onPokemonImageFetched: image => {
     dispatch(pokemonImageFetchedActionCreator(image));
+  },
+  onPokemonLoading: loading => {
+    dispatch(pokemonLoadingActionCreator(loading));
+  },
+  onPokemonLoaded: loaded => {
+    dispatch(pokemonLoadedActionCreator(loaded));
   },
   onPokemonDescriptionFetched: description => {
     dispatch(pokemonDescriptionFetchedActionCreator(description));

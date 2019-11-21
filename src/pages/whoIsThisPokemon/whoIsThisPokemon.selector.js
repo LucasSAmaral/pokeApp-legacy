@@ -6,8 +6,11 @@ export const getPokemonName = state =>
 export const getPokemonImage = state =>
   pathOr("", ["pokemon", "pokemonImage"], state);
 
-export const getIsCover = state =>
+export const getCover = state =>
   pathOr(false, ["whoIsThisPokemon", "cover"], state);
+
+export const getLoading = state =>
+  pathOr(false, ["whoIsThisPokemon", "loading"], state);
 
 export const getWhoIsThisPokemonPageText = AppText =>
   path(["WhiIsThisPokemonPageText"], AppText);
