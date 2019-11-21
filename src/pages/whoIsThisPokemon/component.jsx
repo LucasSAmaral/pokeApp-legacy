@@ -9,8 +9,7 @@ import randomizePokemon from "../../helpers/randomizePokemon";
 import {
   getWhoIsThisPokemonPageText,
   getCover,
-  getPokemonImage,
-  getLoading
+  getPokemonImage
 } from "./whoIsThisPokemon.selector";
 import Loading from "../../components/Loading/Loading";
 
@@ -18,8 +17,7 @@ export default props => {
   const state = store.getState();
   const WhoIsThisPokemonPageText = getWhoIsThisPokemonPageText(AppText);
   const isCover = getCover(state);
-  const isLoading = getLoading(state);
-  const pokemonImage = getPokemonImage(state);
+  const pokemonImageSrc = getPokemonImage(state);
   useComponentDidMount(() => {
     document.title = "Who Is This Pokémon?";
     randomizePokemon(props);
@@ -30,11 +28,8 @@ export default props => {
         <FeatureMainTitle>
           {WhoIsThisPokemonPageText.PageTitle}
         </FeatureMainTitle>
-        {isLoading && <Loading />}
-        {!isLoading && (
-          <PokemonImage class={isCover ? "cover" : ""} src={pokemonImage} />
-        )}
-
+        <Loading />
+        <PokemonImage class={isCover ? "cover" : ""} src={pokemonImageSrc} />
         <div className="container__pokeButton">
           <button
             className="pokeButton"

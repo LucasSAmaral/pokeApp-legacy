@@ -19,7 +19,7 @@ const randomizePokemon = props => {
   dispatchPokemonImage(props, randomNumber);
   setTimeout(() => {
     dispatchPokemonLoaded(props, false);
-  }, 1000);
+  }, 1500);
 };
 
 export default randomizePokemon;
