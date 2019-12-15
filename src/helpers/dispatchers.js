@@ -36,6 +36,6 @@ export const dispatchPokemonLoading = (props, loading) => {
   props.onPokemonLoading(loading);
 };
 
-export const dispatchPokemonLoaded = props => {
-  props.onPokemonLoaded();
+export const dispatchPokemonLoaded = (props, loaded) => {
+  props.onPokemonLoaded(loaded);
 };
