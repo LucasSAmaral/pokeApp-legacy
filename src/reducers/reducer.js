@@ -13,6 +13,7 @@ import {
   pokemonImageFetchedActionCreator,
   pokemonDescriptionFetchedActionCreator
 } from "../pages/Pokemon/pokemon.reducer";
+import stringfyNumber from "../helpers/stringfyNumber";
 
 export default combineReducers({
   pokemon,
@@ -36,22 +37,38 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   dispatch,
-  onPokemonNumberFetched: number => {
-    dispatch(pokemonNumberFetchedActionCreator(number));
+  dispatchPokemonName: (randomNumber, pokemons) => {
+    pokemons
+      .then(pokemon => {
+        dispatch(pokemonNameFetchedActionCreator(pokemon[randomNumber].name));
+      })
+      .catch(error => {
+        console.log(error);
+      });
   },
-  onPokemonNameFetched: name => {
-    dispatch(pokemonNameFetchedActionCreator(name));
+  dispatchPokemonNumber: randomNumber => {
+    const pokemonNumber = randomNumber + 1;
+    dispatch(pokemonNumberFetchedActionCreator(pokemonNumber));
   },
-  onPokemonUrlFetched: url => {
-    dispatch(pokemonUrlFetchedActionCreator(url));
+  dispatchPokemonUrl: (randomNumber, pokemons) => {
+    pokemons
+      .then(pokemon => {
+        dispatch(pokemonUrlFetchedActionCreator(pokemon[randomNumber].url));
+      })
+      .catch(error => {
+        console.log(error);
+      });
   },
-  onPokemonImageFetched: image => {
-    dispatch(pokemonImageFetchedActionCreator(image));
+  dispatchPokemonImage: randomNumber => {
+    const pokemonNumber = randomNumber + 1;
+    const stringPokemonNumber = stringfyNumber(pokemonNumber);
+    const pokemonImagePath = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${stringPokemonNumber}.png`;
+    dispatch(pokemonImageFetchedActionCreator(pokemonImagePath));
   },
-  onPokemonLoading: loading => {
+  dispatchPokemonLoading: loading => {
     dispatch(pokemonLoadingActionCreator(loading));
   },
-  onPokemonLoaded: loaded => {
+  dispatchPokemonLoaded: loaded => {
     dispatch(pokemonLoadedActionCreator(loaded));
   },
   onPokemonDescriptionFetched: description => {
