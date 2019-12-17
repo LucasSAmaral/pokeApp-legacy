@@ -31,7 +31,9 @@ export const mapStateToProps = state => ({
   },
   whoIsThisPokemon: {
     status: state.whoIsThisPokemon.status,
-    timesWithoutSkip: state.whoIsThisPokemon.timesWithoutSkip
+    timesWithoutSkip: state.whoIsThisPokemon.timesWithoutSkip,
+    loading: state.whoIsThisPokemon.loading,
+    cover: state.whoIsThisPokemon.cover
   }
 });
 
