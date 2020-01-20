@@ -13,4 +13,4 @@ export const getLoading = state =>
   pathOr(false, ["whoIsThisPokemon", "loading"], state);
 
 export const getWhoIsThisPokemonPageText = AppText =>
-  path(["WhiIsThisPokemonPageText"], AppText);
+  path(["WhoIsThisPokemonPageText"], AppText);
