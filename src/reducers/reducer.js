@@ -14,6 +14,18 @@ import {
   pokemonDescriptionFetchedActionCreator
 } from "../pages/Pokemon/pokemon.reducer";
 import stringfyNumber from "../helpers/stringfyNumber";
+import {
+  getPokemonName,
+  getPokemonImage,
+  getCover,
+  getLoading,
+  getPokemonStatus,
+  getPokemonNumber,
+  getPokemonUrl,
+  getPokemonDescription,
+  getWhoIsThisPokemonStatus,
+  getTimesWithoutSkip
+} from "../pages/whoIsThisPokemon/whoIsThisPokemon.selector";
 
 export default combineReducers({
   pokemon,
@@ -22,18 +34,18 @@ export default combineReducers({
 
 export const mapStateToProps = state => ({
   pokemon: {
-    status: state.pokemon.status,
-    pokemonNumber: state.pokemon.pokemonNumber,
-    pokemonName: state.pokemon.pokemonName,
-    pokemonUrl: state.pokemon.pokemonUrl,
-    pokemonImage: state.pokemon.pokemonImage,
-    pokemonDescription: state.pokemon.pokemonDescription
+    status: getPokemonStatus(state),
+    pokemonNumber: getPokemonNumber(state),
+    pokemonName: getPokemonName(state),
+    pokemonUrl: getPokemonUrl(state),
+    pokemonImage: getPokemonImage(state),
+    pokemonDescription: getPokemonDescription(state)
   },
   whoIsThisPokemon: {
-    status: state.whoIsThisPokemon.status,
-    timesWithoutSkip: state.whoIsThisPokemon.timesWithoutSkip,
-    loading: state.whoIsThisPokemon.loading,
-    cover: state.whoIsThisPokemon.cover
+    status: getWhoIsThisPokemonStatus(state),
+    timesWithoutSkip: getTimesWithoutSkip(state),
+    loading: getLoading(state),
+    cover: getCover(state)
   }
 });
 
