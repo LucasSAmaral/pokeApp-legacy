@@ -2,7 +2,7 @@ import React from "react";
 import { store } from "../..";
 import { getLoading } from "../../pages/whoIsThisPokemon/whoIsThisPokemon.selector";
 
-const Loading = props => {
+const Loading = () => {
   const state = store.getState();
   const isLoading = getLoading(state);
   return (

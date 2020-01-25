@@ -18,6 +18,9 @@ export default props => {
   });
   return (
     <div className="container__pokeApp">
+      <div className="container__timesWithoutSkip">
+        {`${WhoIsThisPokemonPageText.TimesWithoutSkip}: ${whoIsThisPokemon.timesWithoutSkip}`}
+      </div>
       <PokeAppGame>
         <FeatureMainTitle>
           {WhoIsThisPokemonPageText.PageTitle}
