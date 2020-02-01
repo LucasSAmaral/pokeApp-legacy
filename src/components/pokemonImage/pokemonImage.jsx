@@ -1,16 +1,15 @@
 import React from "react";
-import { store } from "../..";
-import { getLoading } from "../../pages/whoIsThisPokemon/whoIsThisPokemon.selector";
 
 const PokemonImage = props => {
-  const state = store.getState();
-  const isLoading = getLoading(state);
+  const { whoIsThisPokemon, pokemon } = props;
+  const { loading, cover } = whoIsThisPokemon;
+  const { pokemonImage } = pokemon;
   return (
-    !isLoading && (
+    !loading && (
       <img
         draggable="false"
-        className={`pokeApp__pokeImage ${props.class}`}
-        src={props.src}
+        className={`pokeApp__pokeImage ${cover ? "cover" : ""}`}
+        src={pokemonImage}
         alt=""
       />
     )

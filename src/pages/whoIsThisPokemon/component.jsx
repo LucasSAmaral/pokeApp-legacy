@@ -6,11 +6,18 @@ import PokeAppGame from "../../components/pokeAppGame/pokeAppGame";
 import PokemonImage from "../../components/pokemonImage/pokemonImage";
 import randomizePokemon from "../../helpers/randomizePokemon";
 import { getWhoIsThisPokemonPageText } from "./whoIsThisPokemon.selector";
+import SkipCounter from "../../components/SkipCounter/SkipCounter";
 import Loading from "../../components/Loading/Loading";
+import PokeButtonRandom from "../../components/pokeButton/pokeButtonRandom";
 
 export default props => {
-  const WhoIsThisPokemonPageText = getWhoIsThisPokemonPageText(AppText);
-  const { whoIsThisPokemon, pokemon } = props;
+  const {
+    TimesWithoutSkip,
+    PageTitle,
+    buttonLabel
+  } = getWhoIsThisPokemonPageText(AppText);
+  const { whoIsThisPokemon } = props;
+  const { timesWithoutSkip } = whoIsThisPokemon;
 
   useComponentDidMount(() => {
     document.title = "Who Is This Pokémon?";
@@ -18,26 +25,12 @@ export default props => {
   });
   return (
     <div className="container__pokeApp">
-      <div className="container__timesWithoutSkip">
-        {`${WhoIsThisPokemonPageText.TimesWithoutSkip}: ${whoIsThisPokemon.timesWithoutSkip}`}
-      </div>
+      <SkipCounter text={TimesWithoutSkip} counter={timesWithoutSkip} />
       <PokeAppGame>
-        <FeatureMainTitle>
-          {WhoIsThisPokemonPageText.PageTitle}
-        </FeatureMainTitle>
-        <Loading />
-        <PokemonImage
-          class={whoIsThisPokemon.cover ? "cover" : ""}
-          src={pokemon.pokemonImage}
-        />
-        <div className="container__pokeButton">
-          <button
-            className="pokeButton"
-            onClick={() => randomizePokemon(props)}
-          >
-            {WhoIsThisPokemonPageText.buttonLabel}
-          </button>
-        </div>
+        <FeatureMainTitle>{PageTitle}</FeatureMainTitle>
+        <Loading {...props} />
+        <PokemonImage {...props} />
+        <PokeButtonRandom {...props} buttonLabel={buttonLabel} />
       </PokeAppGame>
     </div>
   );

@@ -17,8 +17,8 @@
     "PageTitle": "Coming Soon"
   },
   "WhoIsThisPokemonPageText": {
-    "TimesWithoutSkip": "Times Without Skip",
+    "TimesWithoutSkip": "Times Without Skipping",
     "PageTitle": "Who Is This Pokémon?",
-    "buttonLabel": "Try Another"
+    "buttonLabel": "Skip"
   }
 }

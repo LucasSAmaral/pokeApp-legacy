@@ -38,6 +38,13 @@ body {
   justify-content: space-between;
 }
 
+.container__timesWithoutSkip {
+  @extend .container__pokeApp-features;
+  max-width: 400px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 .pokeApp__FeatureTitle,
 .buttonLabel {
   text-align: center;

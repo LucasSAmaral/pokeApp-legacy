@@ -1,12 +1,10 @@
 import React from "react";
-import { store } from "../..";
-import { getLoading } from "../../pages/whoIsThisPokemon/whoIsThisPokemon.selector";
 
-const Loading = () => {
-  const state = store.getState();
-  const isLoading = getLoading(state);
+const Loading = props => {
+  const { whoIsThisPokemon } = props;
+  const { loading } = whoIsThisPokemon;
   return (
-    isLoading && (
+    loading && (
       <div className="pokeApp__loading--container">
         <div className="pokeApp__loading"></div>
       </div>
