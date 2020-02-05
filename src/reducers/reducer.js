@@ -2,7 +2,8 @@ import { combineReducers } from "redux";
 import {
   whoIsThisPokemonReducer as whoIsThisPokemon,
   pokemonLoadingActionCreator,
-  pokemonLoadedActionCreator
+  pokemonLoadedActionCreator,
+  pokemonGuessedActionCreator
 } from "../pages/whoIsThisPokemon/whoIsThisPokemon.reducer";
 
 import {
@@ -79,11 +80,14 @@ export const mapDispatchToProps = dispatch => ({
     const pokemonImagePath = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${stringPokemonNumber}.png`;
     dispatch(pokemonImageFetchedActionCreator(pokemonImagePath));
   },
-  dispatchPokemonLoading: loading => {
-    dispatch(pokemonLoadingActionCreator(loading));
+  dispatchPokemonLoading: () => {
+    dispatch(pokemonLoadingActionCreator());
   },
-  dispatchPokemonLoaded: loaded => {
-    dispatch(pokemonLoadedActionCreator(loaded));
+  dispatchPokemonLoaded: () => {
+    dispatch(pokemonLoadedActionCreator());
+  },
+  onPokemonGuessed: () => {
+    dispatch(pokemonGuessedActionCreator());
   },
   onPokemonDescriptionFetched: description => {
     dispatch(pokemonDescriptionFetchedActionCreator(description));

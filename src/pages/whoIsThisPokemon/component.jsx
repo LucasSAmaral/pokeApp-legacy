@@ -9,6 +9,9 @@ import { getWhoIsThisPokemonPageText } from "./whoIsThisPokemon.selector";
 import SkipCounter from "../../components/SkipCounter/SkipCounter";
 import Loading from "../../components/Loading/Loading";
 import PokeButtonRandom from "../../components/pokeButton/pokeButtonRandom";
+import PokemonContainer from "../../components/pokemonContainer/pokemonContainer";
+import InputContainer from "../../components/inputContainer/inputContainer";
+import ContainerPokeApp from "../../components/containerPokeApp/containerPokeApp";
 
 export default props => {
   const {
@@ -24,14 +27,17 @@ export default props => {
     randomizePokemon(props);
   });
   return (
-    <div className="container__pokeApp">
+    <ContainerPokeApp>
       <SkipCounter text={TimesWithoutSkip} counter={timesWithoutSkip} />
       <PokeAppGame>
         <FeatureMainTitle>{PageTitle}</FeatureMainTitle>
-        <Loading {...props} />
-        <PokemonImage {...props} />
+        <PokemonContainer>
+          <Loading {...props} />
+          <PokemonImage {...props} />
+        </PokemonContainer>
+        <InputContainer {...props} />
         <PokeButtonRandom {...props} buttonLabel={buttonLabel} />
       </PokeAppGame>
-    </div>
+    </ContainerPokeApp>
   );
 };

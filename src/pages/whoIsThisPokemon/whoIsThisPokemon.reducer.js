@@ -1,6 +1,7 @@
 export const INITIAL_STATUS = "INITIAL_STATUS";
 export const POKEMON_LOADING = "POKEMON_LOADING";
 export const POKEMON_LOADED = "POKEMON_LOADED";
+export const POKEMON_GUESSED = "POKEMON_GUESSED";
 
 const initialState = {
   status: INITIAL_STATUS,
@@ -20,13 +21,19 @@ export const whoIsThisPokemonReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         status: POKEMON_LOADING,
-        loading: action.payload
+        loading: true
       };
     case POKEMON_LOADED:
       return {
         ...state,
         status: POKEMON_LOADED,
-        loading: action.payload
+        loading: false
+      };
+    case POKEMON_GUESSED:
+      return {
+        ...state,
+        status: POKEMON_GUESSED,
+        cover: false
       };
     default:
       return state;
@@ -43,12 +50,14 @@ export const whoIsThisPokemonReducer = (state = initialState, action = {}) => {
 //   payload: name
 // });
 
-export const pokemonLoadingActionCreator = loading => ({
-  type: POKEMON_LOADING,
-  payload: loading
+export const pokemonLoadingActionCreator = () => ({
+  type: POKEMON_LOADING
 });
 
-export const pokemonLoadedActionCreator = loaded => ({
-  type: POKEMON_LOADED,
-  payload: loaded
+export const pokemonLoadedActionCreator = () => ({
+  type: POKEMON_LOADED
+});
+
+export const pokemonGuessedActionCreator = () => ({
+  type: POKEMON_GUESSED
 });
