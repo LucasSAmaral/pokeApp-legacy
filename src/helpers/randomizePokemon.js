@@ -1,9 +1,9 @@
 import randomizeNumber from "./randomizeNumber";
 import getPokemons from "./getPokemons";
 
-const randomizePokemon = props => {
+const randomizePokemon = async props => {
   const randomNumber = randomizeNumber(1, 151);
-  const pokemons = getPokemons(0, 151);
+  const pokemons = await getPokemons(0, 151);
   props.dispatchPokemonLoading(true);
   props.dispatchPokemonNumber(randomNumber);
   props.dispatchPokemonName(randomNumber, pokemons);

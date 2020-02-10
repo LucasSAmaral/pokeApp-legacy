@@ -53,26 +53,14 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   dispatch,
   dispatchPokemonName: (randomNumber, pokemons) => {
-    pokemons
-      .then(pokemon => {
-        dispatch(pokemonNameFetchedActionCreator(pokemon[randomNumber].name));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    dispatch(pokemonNameFetchedActionCreator(pokemons[randomNumber].name));
   },
   dispatchPokemonNumber: randomNumber => {
     const pokemonNumber = randomNumber + 1;
     dispatch(pokemonNumberFetchedActionCreator(pokemonNumber));
   },
   dispatchPokemonUrl: (randomNumber, pokemons) => {
-    pokemons
-      .then(pokemon => {
-        dispatch(pokemonUrlFetchedActionCreator(pokemon[randomNumber].url));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    dispatch(pokemonUrlFetchedActionCreator(pokemons[randomNumber].url));
   },
   dispatchPokemonImage: randomNumber => {
     const pokemonNumber = randomNumber + 1;
