@@ -1,31 +1,43 @@
 import React from "react";
 import useComponentDidMount from "../../helpers/useComponentDidMount";
-import randomizeNumber from "../../helpers/randomizeNumber";
-import { store } from "../..";
-import { pathOr } from "ramda";
-import getPokemons from "../../helpers/getPokemons";
+import AppText from "../../assets/AppText/AppText.json";
+import FeatureMainTitle from "../../components/featureTitle/featureMainTitle";
+import PokeAppGame from "../../components/pokeAppGame/pokeAppGame";
+import PokemonImage from "../../components/pokemonImage/pokemonImage";
+import randomizePokemon from "../../helpers/randomizePokemon";
+import { getWhoIsThisPokemonPageText } from "./whoIsThisPokemon.selector";
+import SkipCounter from "../../components/SkipCounter/SkipCounter";
+import Loading from "../../components/Loading/Loading";
+import PokeButtonRandom from "../../components/pokeButton/pokeButtonRandom";
+import PokemonContainer from "../../components/pokemonContainer/pokemonContainer";
+import InputContainer from "../../components/inputContainer/inputContainer";
+import ContainerPokeApp from "../../components/containerPokeApp/containerPokeApp";
 
 export default props => {
-  const state = store.getState();
-  const pokemonName = pathOr("", ["pokemon", "pokemonName"], state);
+  const {
+    TimesWithoutSkip,
+    PageTitle,
+    buttonLabel
+  } = getWhoIsThisPokemonPageText(AppText);
+  const { whoIsThisPokemon } = props;
+  const { timesWithoutSkip } = whoIsThisPokemon;
+
   useComponentDidMount(() => {
     document.title = "Who Is This Pokémon?";
-    const randomNumber = randomizeNumber(1, 151);
-    props.onPokemonNumberFetched(randomNumber);
-    const pokemons = getPokemons(0, 151);
-    pokemons
-      .then(pokemon => {
-        props.onPokemonNameFetched(pokemon[randomNumber].name);
-        props.onPokemonsUrlFetched(pokemon[randomNumber].url);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    randomizePokemon(props);
   });
   return (
-    <div className="container__pokeApp">
-      <h1>Who Is This Pokémon?</h1>
-      <h2>{pokemonName}</h2>
-    </div>
+    <ContainerPokeApp>
+      <SkipCounter text={TimesWithoutSkip} counter={timesWithoutSkip} />
+      <PokeAppGame>
+        <FeatureMainTitle>{PageTitle}</FeatureMainTitle>
+        <PokemonContainer>
+          <Loading {...props} />
+          <PokemonImage {...props} />
+        </PokemonContainer>
+        <InputContainer {...props} />
+        <PokeButtonRandom {...props} buttonLabel={buttonLabel} />
+      </PokeAppGame>
+    </ContainerPokeApp>
   );
 };

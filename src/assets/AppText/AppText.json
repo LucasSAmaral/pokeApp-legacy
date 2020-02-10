@@ -3,17 +3,22 @@
     "PokeAppFeatureText": [
       {
         "path": "/pokedex",
-        "buttonLabel": "Click the Pokeball to know more about Pokémons",
+        "buttonLabel": "See Pokédex",
         "children": "Pokédex"
       },
       {
         "path": "/who-is-this-pokemon",
-        "buttonLabel": "Click the Pokeball to Play",
+        "buttonLabel": "Click to Play",
         "children": "Who is this Pokémon?"
       }
     ]
   },
   "PokedexPageText": {
     "PageTitle": "Coming Soon"
+  },
+  "WhoIsThisPokemonPageText": {
+    "TimesWithoutSkip": "Times Without Skipping",
+    "PageTitle": "Who Is This Pokémon?",
+    "buttonLabel": "Skip"
   }
 }

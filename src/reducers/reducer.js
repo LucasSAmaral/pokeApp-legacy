@@ -1,13 +1,32 @@
 import { combineReducers } from "redux";
-import { whoIsThisPokemonReducer as whoIsThisPokemon } from "../pages/whoIsThisPokemon/reducer";
+import {
+  whoIsThisPokemonReducer as whoIsThisPokemon,
+  pokemonLoadingActionCreator,
+  pokemonLoadedActionCreator,
+  pokemonGuessedActionCreator
+} from "../pages/whoIsThisPokemon/whoIsThisPokemon.reducer";
 
 import {
   pokemonReducer as pokemon,
   pokemonNumberFetchedActionCreator,
   pokemonNameFetchedActionCreator,
   pokemonUrlFetchedActionCreator,
+  pokemonImageFetchedActionCreator,
   pokemonDescriptionFetchedActionCreator
-} from "../pages/Pokemon/reducer";
+} from "../pages/Pokemon/pokemon.reducer";
+import stringfyNumber from "../helpers/stringfyNumber";
+import {
+  getPokemonName,
+  getPokemonImage,
+  getCover,
+  getLoading,
+  getPokemonStatus,
+  getPokemonNumber,
+  getPokemonUrl,
+  getPokemonDescription,
+  getWhoIsThisPokemonStatus,
+  getTimesWithoutSkip
+} from "../pages/whoIsThisPokemon/whoIsThisPokemon.selector";
 
 export default combineReducers({
   pokemon,
@@ -16,28 +35,59 @@ export default combineReducers({
 
 export const mapStateToProps = state => ({
   pokemon: {
-    status: state.pokemon.status,
-    pokemonNumber: state.pokemon.pokemonNumber,
-    pokemonName: state.pokemon.pokemonName,
-    pokemonUrl: state.pokemon.pokemonUrl,
-    pokemonDescription: state.pokemon.pokemonDescription
+    status: getPokemonStatus(state),
+    pokemonNumber: getPokemonNumber(state),
+    pokemonName: getPokemonName(state),
+    pokemonUrl: getPokemonUrl(state),
+    pokemonImage: getPokemonImage(state),
+    pokemonDescription: getPokemonDescription(state)
   },
   whoIsThisPokemon: {
-    status: state.whoIsThisPokemon.status,
-    timesWithoutSkip: state.whoIsThisPokemon.timesWithoutSkip
+    status: getWhoIsThisPokemonStatus(state),
+    timesWithoutSkip: getTimesWithoutSkip(state),
+    loading: getLoading(state),
+    cover: getCover(state)
   }
 });
 
 export const mapDispatchToProps = dispatch => ({
   dispatch,
-  onPokemonNumberFetched: number => {
-    dispatch(pokemonNumberFetchedActionCreator(number));
+  dispatchPokemonName: (randomNumber, pokemons) => {
+    pokemons
+      .then(pokemon => {
+        dispatch(pokemonNameFetchedActionCreator(pokemon[randomNumber].name));
+      })
+      .catch(error => {
+        console.log(error);
+      });
   },
-  onPokemonNameFetched: name => {
-    dispatch(pokemonNameFetchedActionCreator(name));
+  dispatchPokemonNumber: randomNumber => {
+    const pokemonNumber = randomNumber + 1;
+    dispatch(pokemonNumberFetchedActionCreator(pokemonNumber));
   },
-  onPokemonsUrlFetched: url => {
-    dispatch(pokemonUrlFetchedActionCreator(url));
+  dispatchPokemonUrl: (randomNumber, pokemons) => {
+    pokemons
+      .then(pokemon => {
+        dispatch(pokemonUrlFetchedActionCreator(pokemon[randomNumber].url));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
+  dispatchPokemonImage: randomNumber => {
+    const pokemonNumber = randomNumber + 1;
+    const stringPokemonNumber = stringfyNumber(pokemonNumber);
+    const pokemonImagePath = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${stringPokemonNumber}.png`;
+    dispatch(pokemonImageFetchedActionCreator(pokemonImagePath));
+  },
+  dispatchPokemonLoading: () => {
+    dispatch(pokemonLoadingActionCreator());
+  },
+  dispatchPokemonLoaded: () => {
+    dispatch(pokemonLoadedActionCreator());
+  },
+  onPokemonGuessed: () => {
+    dispatch(pokemonGuessedActionCreator());
   },
   onPokemonDescriptionFetched: description => {
     dispatch(pokemonDescriptionFetchedActionCreator(description));
