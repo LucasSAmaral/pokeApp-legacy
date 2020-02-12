@@ -3,11 +3,9 @@ import useComponentDidMount from "../../helpers/useComponentDidMount";
 import AppText from "../../assets/AppText/AppText.json";
 import FeatureMainTitle from "../../components/featureTitle/featureMainTitle";
 import PokeAppGame from "../../components/pokeAppGame/pokeAppGame";
-import PokemonImage from "../../components/pokemonImage/pokemonImage";
 import randomizePokemon from "../../helpers/randomizePokemon";
 import { getWhoIsThisPokemonPageText } from "./whoIsThisPokemon.selector";
 import SkipCounter from "../../components/SkipCounter/SkipCounter";
-import Loading from "../../components/Loading/Loading";
 import PokeButtonRandom from "../../components/pokeButton/pokeButtonRandom";
 import PokemonContainer from "../../components/pokemonContainer/pokemonContainer";
 import InputContainer from "../../components/inputContainer/inputContainer";
@@ -31,10 +29,7 @@ export default props => {
       <SkipCounter text={TimesWithoutSkip} counter={timesWithoutSkip} />
       <PokeAppGame>
         <FeatureMainTitle>{PageTitle}</FeatureMainTitle>
-        <PokemonContainer {...props}>
-          <Loading {...props} />
-          <PokemonImage {...props} />
-        </PokemonContainer>
+        <PokemonContainer {...props} />
         <InputContainer {...props} />
         <PokeButtonRandom {...props} buttonLabel={buttonLabel} />
       </PokeAppGame>

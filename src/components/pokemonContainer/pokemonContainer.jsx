@@ -16,7 +16,7 @@ const PokemonContainer = props => {
     case POKEMON_COVERED:
       return <PokemonImage cover={true} pokemonImage={pokemonImage} />;
     case POKEMON_GUESSED:
-      return <PokemonImage cover={false} pokemonImage={pokemonImage} />;
+      return <PokemonImage pokemonImage={pokemonImage} />;
 
     default:
       return <Loading />;
