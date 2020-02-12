@@ -31,7 +31,7 @@ export default props => {
       <SkipCounter text={TimesWithoutSkip} counter={timesWithoutSkip} />
       <PokeAppGame>
         <FeatureMainTitle>{PageTitle}</FeatureMainTitle>
-        <PokemonContainer>
+        <PokemonContainer {...props}>
           <Loading {...props} />
           <PokemonImage {...props} />
         </PokemonContainer>

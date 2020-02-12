@@ -74,8 +74,8 @@ body {
   width: 70%;
   height: auto;
   align-self: center;
-  transition: 0.8s;
-  filter: drop-shadow(2px 4px 4px black);
+  transition: 1s;
+  filter: brightness(1) drop-shadow(2px 4px 4px black);
 }
 
 .pokeApp__pokeImage.cover {

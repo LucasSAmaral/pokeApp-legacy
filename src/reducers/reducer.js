@@ -2,8 +2,8 @@ import { combineReducers } from "redux";
 import {
   whoIsThisPokemonReducer as whoIsThisPokemon,
   pokemonLoadingActionCreator,
-  pokemonLoadedActionCreator,
-  pokemonGuessedActionCreator
+  pokemonGuessedActionCreator,
+  pokemonCoveredActionCreator
 } from "../pages/whoIsThisPokemon/whoIsThisPokemon.reducer";
 
 import {
@@ -18,8 +18,6 @@ import stringfyNumber from "../helpers/stringfyNumber";
 import {
   getPokemonName,
   getPokemonImage,
-  getCover,
-  getLoading,
   getPokemonStatus,
   getPokemonNumber,
   getPokemonUrl,
@@ -44,35 +42,21 @@ export const mapStateToProps = state => ({
   },
   whoIsThisPokemon: {
     status: getWhoIsThisPokemonStatus(state),
-    timesWithoutSkip: getTimesWithoutSkip(state),
-    loading: getLoading(state),
-    cover: getCover(state)
+    timesWithoutSkip: getTimesWithoutSkip(state)
   }
 });
 
 export const mapDispatchToProps = dispatch => ({
   dispatch,
-  dispatchPokemonName: (randomNumber, pokemons) => {
-    pokemons
-      .then(pokemon => {
-        dispatch(pokemonNameFetchedActionCreator(pokemon[randomNumber].name));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  dispatchPokemonName: (randomNumber, pokemon) => {
+    dispatch(pokemonNameFetchedActionCreator(pokemon[randomNumber].name));
   },
   dispatchPokemonNumber: randomNumber => {
     const pokemonNumber = randomNumber + 1;
     dispatch(pokemonNumberFetchedActionCreator(pokemonNumber));
   },
-  dispatchPokemonUrl: (randomNumber, pokemons) => {
-    pokemons
-      .then(pokemon => {
-        dispatch(pokemonUrlFetchedActionCreator(pokemon[randomNumber].url));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  dispatchPokemonUrl: (randomNumber, pokemon) => {
+    dispatch(pokemonUrlFetchedActionCreator(pokemon[randomNumber].url));
   },
   dispatchPokemonImage: randomNumber => {
     const pokemonNumber = randomNumber + 1;
@@ -83,8 +67,8 @@ export const mapDispatchToProps = dispatch => ({
   dispatchPokemonLoading: () => {
     dispatch(pokemonLoadingActionCreator());
   },
-  dispatchPokemonLoaded: () => {
-    dispatch(pokemonLoadedActionCreator());
+  dispatchPokemonCovered: () => {
+    dispatch(pokemonCoveredActionCreator());
   },
   onPokemonGuessed: () => {
     dispatch(pokemonGuessedActionCreator());

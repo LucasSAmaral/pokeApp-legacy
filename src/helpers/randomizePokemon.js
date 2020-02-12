@@ -1,16 +1,16 @@
 import randomizeNumber from "./randomizeNumber";
 import getPokemons from "./getPokemons";
 
-const randomizePokemon = props => {
+const randomizePokemon = async props => {
   const randomNumber = randomizeNumber(1, 151);
-  const pokemons = getPokemons(0, 151);
-  props.dispatchPokemonLoading(true);
+  const pokemons = await getPokemons(0, 151);
+  props.dispatchPokemonLoading();
   props.dispatchPokemonNumber(randomNumber);
   props.dispatchPokemonName(randomNumber, pokemons);
   props.dispatchPokemonUrl(randomNumber, pokemons);
   props.dispatchPokemonImage(randomNumber);
   setTimeout(() => {
-    props.dispatchPokemonLoaded(false);
+    props.dispatchPokemonCovered();
   }, 1500);
 };
 
