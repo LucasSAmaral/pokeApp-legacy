@@ -1,9 +1,4 @@
-import {
-  getLoading,
-  getPokemonName,
-  getCover,
-  getPokemonImage
-} from "../whoIsThisPokemon.selector";
+import { getPokemonName, getPokemonImage } from "../whoIsThisPokemon.selector";
 
 describe("Should test selectors", () => {
   const mockedResponse = {
@@ -12,22 +7,11 @@ describe("Should test selectors", () => {
       pokemonImage:
         "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
     },
-    whoIsThisPokemon: {
-      loading: true,
-      cover: true
-    }
+    whoIsThisPokemon: {}
   };
-
-  it("should get loading state", () => {
-    expect(getLoading(mockedResponse)).toEqual(true);
-  });
 
   it("should get pokémon name", () => {
     expect(getPokemonName(mockedResponse)).toEqual("Pikachu");
-  });
-
-  it("should get cover state", () => {
-    expect(getCover(mockedResponse)).toEqual(true);
   });
 
   it("should get pokémon image", () => {

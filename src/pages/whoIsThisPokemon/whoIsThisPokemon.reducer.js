@@ -1,39 +1,28 @@
-export const INITIAL_STATUS = "INITIAL_STATUS";
 export const POKEMON_LOADING = "POKEMON_LOADING";
-export const POKEMON_LOADED = "POKEMON_LOADED";
+export const POKEMON_COVERED = "POKEMON_COVERED";
 export const POKEMON_GUESSED = "POKEMON_GUESSED";
 
 const initialState = {
-  status: INITIAL_STATUS,
-  timesWithoutSkip: 0,
-  loading: false,
-  cover: true
+  status: POKEMON_LOADING,
+  timesWithoutSkip: 0
 };
 
 export const whoIsThisPokemonReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case INITIAL_STATUS:
-      return {
-        ...state,
-        status: INITIAL_STATUS
-      };
     case POKEMON_LOADING:
       return {
         ...state,
-        status: POKEMON_LOADING,
-        loading: true
+        status: POKEMON_LOADING
       };
-    case POKEMON_LOADED:
+    case POKEMON_COVERED:
       return {
         ...state,
-        status: POKEMON_LOADED,
-        loading: false
+        status: POKEMON_COVERED
       };
     case POKEMON_GUESSED:
       return {
         ...state,
-        status: POKEMON_GUESSED,
-        cover: false
+        status: POKEMON_GUESSED
       };
     default:
       return state;
@@ -54,8 +43,8 @@ export const pokemonLoadingActionCreator = () => ({
   type: POKEMON_LOADING
 });
 
-export const pokemonLoadedActionCreator = () => ({
-  type: POKEMON_LOADED
+export const pokemonCoveredActionCreator = () => ({
+  type: POKEMON_COVERED
 });
 
 export const pokemonGuessedActionCreator = () => ({

@@ -24,11 +24,5 @@ export const getWhoIsThisPokemonStatus = state =>
 export const getTimesWithoutSkip = state =>
   pathOr(0, ["whoIsThisPokemon", "timesWithoutSkip"], state);
 
-export const getLoading = state =>
-  pathOr(false, ["whoIsThisPokemon", "loading"], state);
-
-export const getCover = state =>
-  pathOr(false, ["whoIsThisPokemon", "cover"], state);
-
 export const getWhoIsThisPokemonPageText = AppText =>
   path(["WhoIsThisPokemonPageText"], AppText);
