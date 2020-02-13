@@ -12,14 +12,30 @@ const PokemonContainer = props => {
   const { status } = props.whoIsThisPokemon;
   switch (status) {
     case POKEMON_LOADING:
-      return <Loading />;
+      return (
+        <div className="pokemon__container">
+          <Loading />
+        </div>
+      );
     case POKEMON_COVERED:
-      return <PokemonImage cover={true} pokemonImage={pokemonImage} />;
+      return (
+        <div className="pokemon__container">
+          <PokemonImage cover={true} pokemonImage={pokemonImage} />
+        </div>
+      );
     case POKEMON_GUESSED:
-      return <PokemonImage pokemonImage={pokemonImage} />;
+      return (
+        <div className="pokemon__container">
+          <PokemonImage pokemonImage={pokemonImage} />
+        </div>
+      );
 
     default:
-      return <Loading />;
+      return (
+        <div className="pokemon__container">
+          <Loading />
+        </div>
+      );
   }
 };
 
