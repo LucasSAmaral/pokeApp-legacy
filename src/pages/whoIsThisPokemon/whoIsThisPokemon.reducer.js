@@ -22,22 +22,13 @@ export const whoIsThisPokemonReducer = (state = initialState, action = {}) => {
     case POKEMON_GUESSED:
       return {
         ...state,
-        status: POKEMON_GUESSED
+        status: POKEMON_GUESSED,
+        timesWithoutSkip: state.timesWithoutSkip + 1
       };
     default:
       return state;
   }
 };
-
-// export const pokemonIdFetchedActionCreator = id => ({
-//   type: POKEMON_ID_FETCHED,
-//   payload: id
-// });
-
-// export const pokemonNameFetchedActionCreator = name => ({
-//   type: POKEMON_NAME_FETCHED,
-//   payload: name
-// });
 
 export const pokemonLoadingActionCreator = () => ({
   type: POKEMON_LOADING
