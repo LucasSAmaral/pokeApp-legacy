@@ -1,15 +1,37 @@
-import React from "react";
-import guessPokemonName from "../../helpers/guessPokemonName";
+import React, { useState } from "react";
+import randomizePokemon from "../../helpers/randomizePokemon";
+// import guessPokemonName from "../../helpers/guessPokemonName";
 
-const InputContainer = props => (
-  <div className="pokeApp__input-container">
-    <input
-      type="text"
-      name="pokemonName"
-      id="pokemonName"
-      onKeyUp={e => guessPokemonName(e.target.value, props)}
-    />
-  </div>
-);
+const guessPokemonName = (e, props, setIntputValue) => {
+  setIntputValue(e);
+  const { pokemonName } = props.pokemon;
+  const name = e.toLowerCase();
+  if (name === pokemonName) {
+    props.onPokemonGuessed();
+    setTimeout(() => {
+      setIntputValue("");
+      randomizePokemon(props);
+    }, 3000);
+  }
+};
+
+const InputContainer = props => {
+  const [inputValue, setIntputValue] = useState("");
+
+  return (
+    <div className="pokeApp__input-container">
+      <input
+        type="text"
+        name="pokemonName"
+        id="pokemonName"
+        value={inputValue}
+        onChange={evt =>
+          guessPokemonName(evt.target.value, props, setIntputValue)
+        }
+        // onKeyUp={e => guessPokemonName(e.target.value, props)}
+      />
+    </div>
+  );
+};
 
 export default InputContainer;
