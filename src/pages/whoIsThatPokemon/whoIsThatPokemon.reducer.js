@@ -7,7 +7,7 @@ const initialState = {
   timesWithoutSkip: 0
 };
 
-export const whoIsThisPokemonReducer = (state = initialState, action = {}) => {
+export const whoIsThatPokemonReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case POKEMON_LOADING:
       return {

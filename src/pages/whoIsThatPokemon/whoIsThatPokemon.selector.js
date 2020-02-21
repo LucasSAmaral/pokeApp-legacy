@@ -18,11 +18,11 @@ export const getPokemonImage = state =>
 export const getPokemonDescription = state =>
   pathOr("", ["pokemon", "pokemonDescription"], state);
 
-export const getWhoIsThisPokemonStatus = state =>
-  pathOr("", ["whoIsThisPokemon", "status"], state);
+export const getWhoIsThatPokemonStatus = state =>
+  pathOr("", ["whoIsThatPokemon", "status"], state);
 
 export const getTimesWithoutSkip = state =>
-  pathOr(0, ["whoIsThisPokemon", "timesWithoutSkip"], state);
+  pathOr(0, ["whoIsThatPokemon", "timesWithoutSkip"], state);
 
-export const getWhoIsThisPokemonPageText = AppText =>
-  path(["WhoIsThisPokemonPageText"], AppText);
+export const getWhoIsThatPokemonPageText = AppText =>
+  path(["WhoIsThatPokemonPageText"], AppText);

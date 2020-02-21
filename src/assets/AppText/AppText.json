@@ -7,7 +7,7 @@
         "children": "Pokédex"
       },
       {
-        "path": "/who-is-this-pokemon",
+        "path": "/who-is-that-pokemon",
         "buttonLabel": "Click to Play",
         "children": "Who is this Pokémon?"
       }
@@ -16,9 +16,9 @@
   "PokedexPageText": {
     "PageTitle": "Coming Soon"
   },
-  "WhoIsThisPokemonPageText": {
+  "WhoIsThatPokemonPageText": {
     "TimesWithoutSkip": "Times Without Skipping",
-    "PageTitle": "Who Is This Pokémon?",
+    "PageTitle": "Who Is That Pokémon?",
     "buttonLabel": "Skip"
   }
 }
