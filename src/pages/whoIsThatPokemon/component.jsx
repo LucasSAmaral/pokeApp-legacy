@@ -24,6 +24,7 @@ export default props => {
     document.title = "Who Is That Pokémon?";
     randomizePokemon(props);
   });
+
   return (
     <ContainerPokeApp>
       <SkipCounter text={TimesWithoutSkip} counter={timesWithoutSkip} />
