@@ -1,20 +1,21 @@
 import randomizePokemon from "./randomizePokemon";
+import { focusInput } from "../components/inputContainer/inputContainer";
 
-const guessPokemonName = (e, props, setIntputValue) => (
-  setDisabled,
-  inputText
+const guessPokemonName = (
+  guessedPokemonName,
+  props,
+  onGuessedPokemon,
+  onNextPokemon
 ) => {
-  setIntputValue(e);
   const { pokemonName } = props.pokemon;
-  const name = e.toLowerCase();
+  const name = guessedPokemonName.toLowerCase();
   if (name === pokemonName) {
-    setDisabled(true);
+    onGuessedPokemon();
     props.onPokemonGuessed();
     setTimeout(() => {
-      setIntputValue("");
+      onNextPokemon();
       randomizePokemon(props);
-      setDisabled(false);
-      inputText.current.focus();
+      focusInput();
     }, 3000);
   }
 };

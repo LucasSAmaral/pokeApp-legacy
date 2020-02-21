@@ -9,11 +9,20 @@ export const focusInput = () => {
 };
 
 const InputContainer = props => {
-  const [inputValue, setIntputValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [disabled, setDisabled] = useState(false);
   useComponentDidMount(() => {
     inputText.current.focus();
   });
+  const onInputChange = pokemonName => {
+    setInputValue(pokemonName);
+    guessPokemonName(pokemonName, props, onGuessedPokemon, onNextPokemon);
+  };
+  const onGuessedPokemon = () => setDisabled(true);
+  const onNextPokemon = () => {
+    setInputValue("");
+    setDisabled(false);
+  };
 
   return (
     <div className="pokeApp__input-container">
@@ -24,13 +33,7 @@ const InputContainer = props => {
         value={inputValue}
         disabled={disabled}
         ref={inputText}
-        onChange={evt =>
-          guessPokemonName(
-            evt.target.value,
-            props,
-            setIntputValue
-          )(setDisabled, inputText)
-        }
+        onChange={evt => onInputChange(evt.target.value)}
       />
     </div>
   );
