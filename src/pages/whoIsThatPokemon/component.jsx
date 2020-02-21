@@ -4,7 +4,7 @@ import AppText from "../../assets/AppText/AppText.json";
 import FeatureMainTitle from "../../components/featureTitle/featureMainTitle";
 import PokeAppGame from "../../components/pokeAppGame/pokeAppGame";
 import randomizePokemon from "../../helpers/randomizePokemon";
-import { getWhoIsThisPokemonPageText } from "./whoIsThisPokemon.selector";
+import { getWhoIsThatPokemonPageText } from "./whoIsThatPokemon.selector";
 import SkipCounter from "../../components/SkipCounter/SkipCounter";
 import PokeButtonRandom from "../../components/pokeButton/pokeButtonRandom";
 import PokemonContainer from "../../components/pokemonContainer/pokemonContainer";
@@ -16,12 +16,12 @@ export default props => {
     TimesWithoutSkip,
     PageTitle,
     buttonLabel
-  } = getWhoIsThisPokemonPageText(AppText);
-  const { whoIsThisPokemon } = props;
-  const { timesWithoutSkip } = whoIsThisPokemon;
+  } = getWhoIsThatPokemonPageText(AppText);
+  const { whoIsThatPokemon } = props;
+  const { timesWithoutSkip } = whoIsThatPokemon;
 
   useComponentDidMount(() => {
-    document.title = "Who Is This Pokémon?";
+    document.title = "Who Is That Pokémon?";
     randomizePokemon(props);
   });
   return (

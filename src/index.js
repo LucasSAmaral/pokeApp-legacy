@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import reducer from "./reducers/reducer";
 import MainPage from "./pages/MainPage/index";
 import Pokedex from "./pages/Pokedex/index";
-import WhoIsThisPokemon from "./pages/whoIsThisPokemon/index";
+import WhoIsThatPokemon from "./pages/whoIsThatPokemon/index";
 import Pokemon from "./pages/Pokemon/index";
 import AboutTheApp from "./pages/AboutTheApp/component";
 import AboutMe from "./pages/AboutMe/component";
@@ -23,7 +23,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={MainPage} />
         <Route path="/pokedex" component={Pokedex} />
-        <Route path="/who-is-this-pokemon" component={WhoIsThisPokemon} />
+        <Route path="/who-is-that-pokemon" component={WhoIsThatPokemon} />
         <Route path="/pokemon" component={Pokemon} />
         <Route path="/about-the-app" component={AboutTheApp} />
         <Route path="/about-me" component={AboutMe} />

@@ -1,14 +1,16 @@
 import randomizePokemon from "./randomizePokemon";
 
-const guessPokemonName = (e, props) => {
+const guessPokemonName = (e, props, setIntputValue) => setDisabled => {
+  setIntputValue(e);
   const { pokemonName } = props.pokemon;
   const name = e.toLowerCase();
   if (name === pokemonName) {
+    setDisabled(true);
     props.onPokemonGuessed();
     setTimeout(() => {
+      setIntputValue("");
       randomizePokemon(props);
-      document.getElementById("pokemonName").value = "";
-      document.getElementById("pokemonName").focus();
+      setDisabled(false);
     }, 3000);
   }
 };

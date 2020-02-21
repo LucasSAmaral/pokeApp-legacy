@@ -3,13 +3,13 @@ import {
   POKEMON_LOADING,
   POKEMON_COVERED,
   POKEMON_GUESSED
-} from "../../pages/whoIsThisPokemon/whoIsThisPokemon.reducer";
+} from "../../pages/whoIsThatPokemon/whoIsThatPokemon.reducer";
 import Loading from "../Loading/Loading";
 import PokemonImage from "../pokemonImage/pokemonImage";
 
 const PokemonContainer = props => {
   const { pokemonImage } = props.pokemon;
-  const { status } = props.whoIsThisPokemon;
+  const { status } = props.whoIsThatPokemon;
   switch (status) {
     case POKEMON_LOADING:
       return (

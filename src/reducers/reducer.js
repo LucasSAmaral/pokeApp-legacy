@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import {
-  whoIsThisPokemonReducer as whoIsThisPokemon,
+  whoIsThatPokemonReducer as whoIsThatPokemon,
   pokemonLoadingActionCreator,
   pokemonGuessedActionCreator,
   pokemonCoveredActionCreator
-} from "../pages/whoIsThisPokemon/whoIsThisPokemon.reducer";
+} from "../pages/whoIsThatPokemon/whoIsThatPokemon.reducer";
 
 import {
   pokemonReducer as pokemon,
@@ -22,13 +22,13 @@ import {
   getPokemonNumber,
   getPokemonUrl,
   getPokemonDescription,
-  getWhoIsThisPokemonStatus,
+  getWhoIsThatPokemonStatus,
   getTimesWithoutSkip
-} from "../pages/whoIsThisPokemon/whoIsThisPokemon.selector";
+} from "../pages/whoIsThatPokemon/whoIsThatPokemon.selector";
 
 export default combineReducers({
   pokemon,
-  whoIsThisPokemon
+  whoIsThatPokemon
 });
 
 export const mapStateToProps = state => ({
@@ -40,8 +40,8 @@ export const mapStateToProps = state => ({
     pokemonImage: getPokemonImage(state),
     pokemonDescription: getPokemonDescription(state)
   },
-  whoIsThisPokemon: {
-    status: getWhoIsThisPokemonStatus(state),
+  whoIsThatPokemon: {
+    status: getWhoIsThatPokemonStatus(state),
     timesWithoutSkip: getTimesWithoutSkip(state)
   }
 });
