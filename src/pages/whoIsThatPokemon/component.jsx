@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 import useComponentDidMount from "../../helpers/useComponentDidMount";
 import AppText from "../../assets/AppText/AppText.json";
 import FeatureMainTitle from "../../components/featureTitle/featureMainTitle";
@@ -21,12 +22,12 @@ export default props => {
   const { timesWithoutSkip } = whoIsThatPokemon;
 
   useComponentDidMount(() => {
-    document.title = "Who Is That Pokémon?";
     randomizePokemon(props);
   });
 
   return (
     <ContainerPokeApp>
+      <Helmet title="Who Is That Pokémon?" />
       <SkipCounter text={TimesWithoutSkip} counter={timesWithoutSkip} />
       <PokeAppGame>
         <FeatureMainTitle>{PageTitle}</FeatureMainTitle>
