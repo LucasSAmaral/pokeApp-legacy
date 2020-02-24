@@ -1,13 +1,11 @@
 import React from "react";
-import useComponentDidMount from "../../helpers/useComponentDidMount";
+import Helmet from "react-helmet";
 import ContainerPokeApp from "../../components/containerPokeApp/containerPokeApp";
 
 export default props => {
-  useComponentDidMount(() => {
-    document.title = "About The App";
-  });
   return (
     <ContainerPokeApp>
+      <Helmet title="About The App" />
       <h1 className="pokeApp__FeatureTitle">About The App</h1>
     </ContainerPokeApp>
   );
