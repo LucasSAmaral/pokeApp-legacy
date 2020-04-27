@@ -15,7 +15,7 @@ git clone https://github.com/LucasSAmaral/pokeApp.git
 Após o repositório ser baixado, entre na pasta:
 
 ```bash
-cd star-wars-perlink
+cd pokeApp
 ```
 
 Instale todas as dependências:
