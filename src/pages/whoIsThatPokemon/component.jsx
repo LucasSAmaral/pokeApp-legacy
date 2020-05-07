@@ -12,11 +12,11 @@ import PokemonContainer from "../../components/pokemonContainer/pokemonContainer
 import InputContainer from "../../components/inputContainer/inputContainer";
 import ContainerPokeApp from "../../components/containerPokeApp/containerPokeApp";
 
-export default props => {
+export default (props) => {
   const {
     TimesWithoutSkip,
     PageTitle,
-    buttonLabel
+    buttonLabel,
   } = getWhoIsThatPokemonPageText(AppText);
   const { whoIsThatPokemon } = props;
   const { timesWithoutSkip } = whoIsThatPokemon;
@@ -25,13 +25,16 @@ export default props => {
     randomizePokemon(props);
   });
 
+  const { pokemonImage } = props.pokemon;
+  const { status } = props.whoIsThatPokemon;
+
   return (
     <ContainerPokeApp>
       <Helmet title="Who Is That Pokémon?" />
       <SkipCounter text={TimesWithoutSkip} counter={timesWithoutSkip} />
       <PokeAppGame>
         <FeatureMainTitle>{PageTitle}</FeatureMainTitle>
-        <PokemonContainer {...props} />
+        <PokemonContainer pokemonImage={pokemonImage} status={status} />
         <InputContainer {...props} />
         <PokeButtonRandom {...props} buttonLabel={buttonLabel} />
       </PokeAppGame>

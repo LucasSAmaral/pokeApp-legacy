@@ -2,21 +2,13 @@ import React from "react";
 import {
   POKEMON_LOADING,
   POKEMON_COVERED,
-  POKEMON_GUESSED
+  POKEMON_GUESSED,
 } from "../../pages/whoIsThatPokemon/whoIsThatPokemon.reducer";
 import Loading from "../Loading/Loading";
 import PokemonImage from "../pokemonImage/pokemonImage";
 
-const PokemonContainer = props => {
-  const { pokemonImage } = props.pokemon;
-  const { status } = props.whoIsThatPokemon;
+const PokemonContainer = ({ pokemonImage, status }) => {
   switch (status) {
-    case POKEMON_LOADING:
-      return (
-        <div className="pokemon__container">
-          <Loading />
-        </div>
-      );
     case POKEMON_COVERED:
       return (
         <div className="pokemon__container">
@@ -29,7 +21,7 @@ const PokemonContainer = props => {
           <PokemonImage pokemonImage={pokemonImage} />
         </div>
       );
-
+    case POKEMON_LOADING:
     default:
       return (
         <div className="pokemon__container">
